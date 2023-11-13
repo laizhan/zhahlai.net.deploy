@@ -16,37 +16,37 @@ services:
     #   - consul-server
     command: agent -server -node=consul-server-1 -bootstrap-expect=1 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul # 启动命令，指定需要 3 个 server 节点
 
-  consul-server2:
-    image: hashicorp/consul:1.16
-    deploy:
-      resources:
-        limits:
-          memory: 100m    
-    container_name: consul-server-2
-    command: agent -server -retry-join=consul-server-1 -node=consul-server-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
-    restart: always
-    volumes:
-      - /data/consul/consul-volume-2:/consul
-    depends_on:
-      - consul-server1
-    # networks:
-    #   - consul-server
+  # consul-server2:
+  #   image: hashicorp/consul:1.16
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 100m    
+  #   container_name: consul-server-2
+  #   command: agent -server -retry-join=consul-server-1 -node=consul-server-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
+  #   restart: always
+  #   volumes:
+  #     - /data/consul/consul-volume-2:/consul
+  #   depends_on:
+  #     - consul-server1
+  #   # networks:
+  #   #   - consul-server
 
-  consul-server3:
-    image: hashicorp/consul:1.16
-    deploy:
-      resources:
-        limits:
-          memory: 100m    
-    container_name: consul-server-3
-    command: agent -server -retry-join=consul-server-1 -node=consul-server-3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
-    restart: always
-    volumes:
-      - /data/consul/consul-volume-3:/consul
-    depends_on:
-      - consul-server1
-    # networks:
-    #   - consul-server
+  # consul-server3:
+  #   image: hashicorp/consul:1.16
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 100m    
+  #   container_name: consul-server-3
+  #   command: agent -server -retry-join=consul-server-1 -node=consul-server-3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
+  #   restart: always
+  #   volumes:
+  #     - /data/consul/consul-volume-3:/consul
+  #   depends_on:
+  #     - consul-server1
+  #   # networks:
+  #   #   - consul-server
 
   consul-agent:
     image: hashicorp/consul:1.16
@@ -82,5 +82,6 @@ networks:
 # docker compose command:
 # docker compose -f consul.yml up -d
 # docker compose -f consul.yml down
+# chmod -R 777 /data/consul
 # docker compose -f /mnt/c/_PVT/zhanlai.net/deploy/docker-compose/consul/consul.yml up -d
 # adduser consul  # consul中默认是这个用户，在宿主机配置这个用户，就可以在容器中访问宿主机的目录
