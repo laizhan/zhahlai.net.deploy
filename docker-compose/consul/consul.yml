@@ -62,8 +62,9 @@ services:
       # - "18600:8600/tcp" # DNS 端口
       # - "18600:8600/udp"
     depends_on:
-        - consul-server2
-        - consul-server3
+        - consul-server1
+        # - consul-server2
+        # - consul-server3
     # networks:
     #   - consul-server
 
