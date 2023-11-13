@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  blog-api:
+    image: laizhan/blogapi:latest
+    deploy:
+      resources:
+        limits:
+          memory: 200m    
+    container_name: blogapi # suggestions: communication using container name in docker compose
+    restart: always
+    volumes:
+      - /mnt/c/_PVT/zhanlai.net/deploy/docker-compose/services/blogapi/volume:/app/Persistence/DbFile
+    ports:
+      - 30001:80
+networks:
+  default:
+    name: zhanlai-network
+    external: true
+    # external:
+    #   name: consul_consul-server

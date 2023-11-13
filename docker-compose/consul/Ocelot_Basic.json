@@ -1,0 +1,42 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/{url}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "blogapi",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/blogapi/{url}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/blog",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "blogapi",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/blog",
+            "UpstreamHttpMethod": []
+        },
+        {
+            "DownstreamPathTemplate": "/blog/{url}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "blogapi",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/blog/{url}",
+            "UpstreamHttpMethod": []
+        }
+    ]
+}

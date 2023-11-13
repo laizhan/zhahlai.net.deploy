@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  ocelotapigw_global:
+    image: laizhan/ocelotapigw:latest
+    deploy:
+      resources:
+        limits:
+          memory: 100m    
+    container_name: ocelotapigw_global
+    restart: always
+    ports:
+      - 80:80
+networks:
+  default:
+    name: zhanlai-network
+    external: true
