@@ -9,7 +9,7 @@ services:
     container_name: consul-server-1
     restart: always
     volumes:
-      - /consul/consul-volume-1:/consul
+      - /data/consul/consul-volume-1:/consul
       # - ./server1.json:/consul/config/server1.json:ro # 挂载配置文件
       # - ./certs/:/consul/config/certs/:ro # 挂载证书文件
     # networks:
@@ -26,7 +26,7 @@ services:
     command: agent -server -retry-join=consul-server-1 -node=consul-server-2 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
     restart: always
     volumes:
-      - /consul/consul-volume-2:/consul
+      - /data/consul/consul-volume-2:/consul
     depends_on:
       - consul-server1
     # networks:
@@ -42,7 +42,7 @@ services:
     command: agent -server -retry-join=consul-server-1 -node=consul-server-3 -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc1 -data-dir=/consul
     restart: always
     volumes:
-      - /consul/consul-volume-3:/consul
+      - /data/consul/consul-volume-3:/consul
     depends_on:
       - consul-server1
     # networks:
