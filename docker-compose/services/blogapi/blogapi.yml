@@ -9,7 +9,7 @@ services:
     container_name: blogapi # suggestions: communication using container name in docker compose
     restart: always
     volumes:
-      - /mnt/c/_PVT/zhanlai.net/deploy/docker-compose/services/blogapi/volume:/app/Persistence/DbFile
+      # - /mnt/c/_PVT/zhanlai.net/deploy/docker-compose/services/blogapi/volume:/app/Persistence/DbFile
     ports:
       - 30001:80
 networks:

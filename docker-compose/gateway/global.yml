@@ -8,8 +8,15 @@ services:
           memory: 100m    
     container_name: ocelotapigw_global
     restart: always
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=6tcab0v39bb8
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - /data/https:/https:ro
     ports:
       - 80:80
+      - 443:443
 networks:
   default:
     name: zhanlai-network
