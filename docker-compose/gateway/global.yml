@@ -12,7 +12,7 @@ services:
       # - dotnet dev-certs https --clean
       # - dotnet dev-certs https -ep /https/aspnetapp.pfx -p 6tcab0v39bb8
       # - dotnet dev-certs https --trust
-      - dotnet ZhanLai.OcelotApiGw.dll
+      # - dotnet ZhanLai.OcelotApiGw.dll
     environment:
       - ASPNETCORE_HTTPS_PORT=443
       - ASPNETCORE_URLS=https://+:443;http://+:80
