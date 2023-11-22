@@ -7,7 +7,7 @@ services:
     restart: always
     ports:
       - 8080:2368
-    container_name: ghost # suggestions: communication using container name in docker compose
+    container_name: ghost-server # suggestions: communication using container name in docker compose
     environment:
       # see https://ghost.org/docs/config/#configuration-options
       database__client: mysql
@@ -23,6 +23,7 @@ services:
   db:
     image: mysql:8.0
     restart: always
+    container_name: ghost-db # suggestions: communication using container name in docker compose
     environment:
       MYSQL_ROOT_PASSWORD: example
 
