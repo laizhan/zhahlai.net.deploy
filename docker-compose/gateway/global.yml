@@ -8,6 +8,10 @@ services:
           memory: 100m    
     container_name: ocelotapigw_global
     restart: always
+    command: 
+      - dotnet dev-certs https --trust
+      - dotnet dev-certs https -ep /https/aspnetapp.pfx -p 6tcab0v39bb8
+      - dotnet dev-certs https --trust
     environment:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_Kestrel__Certificates__Default__Password=6tcab0v39bb8
